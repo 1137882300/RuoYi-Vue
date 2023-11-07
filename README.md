@@ -14,7 +14,7 @@ docker run -p 6379:6379 --name redis \
 -v /home/redis/data:/data \
 -v /home/redis/conf/redis.conf:/etc/redis/redis.conf \
 -d redis:6.2 redis-server /etc/redis/redis.conf -- appendonly yes
-
+redis-cli
 
 <p align="center">
 	<img alt="logo" src="https://oscimg.oschina.net/oscnet/up-d3d0a9303e11d522a06cd263f3079027715.png">
