@@ -1,18 +1,17 @@
 部署docker：https://blog.siuming.love/post/7#Mysql
 docker pull mysql:8.0.32
 mkdir -p /home/mysql/data /home/mysql/logs /home/mysql/conf
-docker run -p 3306:3306 --name mysql \
--v /home/mysql/conf:/etc/mysql/conf.d \
--v /home/mysql/logs:/logs \
--v /home/mysql/data:/var/lib/mysql \
--e MYSQL_ROOT_PASSWORD=admin -d mysql:8.0.32
-docker exec -it mysql /bin/bash
+docker run -p 3306:3306 --name mysql  -v /docker-home/mysql/conf:/etc/mysql/conf.d  -v /docker-home/mysql/logs:/logs  -v /docker-home/mysql/data:/var/lib/mysql  -e MYSQL_ROOT_PASSWORD=admin -d mysql:8.0.32
+docker run -it --rm -v /home/mysql/data:/var/lib/mysql -v /home/mysql/conf:/etc/mysql/conf.d -v /home/mysql/logs:/var/log/mysql -e MYSQL_ROOT_PASSWORD=admin mysql:8.0.32
+docker exec -it mysql /bin/bash(进入mysql)
+docker inspect mysql(查看Mounts是否挂载ok)
+docker volume ls(查看数据卷)
 
 docker pull redis:6.2
 mkdir -p /home/redis/data /home/redis/conf
 docker run -p 6379:6379 --name redis \
--v /home/redis/data:/data \
--v /home/redis/conf/redis.conf:/etc/redis/redis.conf \
+-v /docker-home/redis/data:/data \
+-v /docker-home/redis/conf/redis.conf:/etc/redis/redis.conf \
 -d redis:6.2 redis-server /etc/redis/redis.conf -- appendonly yes
 redis-cli
 

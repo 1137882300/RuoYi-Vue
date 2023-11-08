@@ -2,8 +2,8 @@ drop table if exists home_clothing;
 create table home_clothing
 (
     id          bigint(20) not null auto_increment comment 'id',
-    user_id     bigint(20) not null comment '物主ID',
-    admin_id    bigint(20) not null comment '管理员ID',
+    user_id     bigint(20) default 0 comment '物主ID',
+    admin_id    bigint(20) default 0 comment '管理员ID',
     brand_id    bigint(20) default 0 comment '品牌ID',
     category_id bigint(20) default 0 comment '类目ID',
     title       varchar(50)       default '' comment '标题',
