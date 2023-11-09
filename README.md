@@ -1,6 +1,7 @@
 部署docker：https://blog.siuming.love/post/7#Mysql
 docker pull mysql:8.0.32
 mkdir -p /home/mysql/data /home/mysql/logs /home/mysql/conf
+window方式:docker run -p 3306:3306 --name mysql -v F:\docker-home\mysql\data:/var/lib/mysql -v F:\docker-home\mysql\conf:/etc/mysql/conf.d -v F:\docker-home\mysql\logs:/logs -e MYSQL_ROOT_PASSWORD=admin -d mysql:8.0.32
 docker run -p 3306:3306 --name mysql  -v /docker-home/mysql/conf:/etc/mysql/conf.d  -v /docker-home/mysql/logs:/logs  -v /docker-home/mysql/data:/var/lib/mysql  -e MYSQL_ROOT_PASSWORD=admin -d mysql:8.0.32
 docker run -it --rm -v /home/mysql/data:/var/lib/mysql -v /home/mysql/conf:/etc/mysql/conf.d -v /home/mysql/logs:/var/log/mysql -e MYSQL_ROOT_PASSWORD=admin mysql:8.0.32
 docker exec -it mysql /bin/bash(进入mysql)
