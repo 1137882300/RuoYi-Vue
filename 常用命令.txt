@@ -16,3 +16,6 @@ docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' mys
 
 查看容器的状态
 docker ps -f name=mysql-v2
+
+查看网络
+docker network ls
