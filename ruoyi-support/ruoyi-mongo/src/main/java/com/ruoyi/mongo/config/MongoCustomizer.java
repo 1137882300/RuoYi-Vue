@@ -5,8 +5,6 @@ import com.mongodb.MongoClientSettings;
 import com.mongodb.event.CommandListener;
 import com.mongodb.event.CommandStartedEvent;
 import com.mongodb.event.CommandSucceededEvent;
-import com.ruoyi.tool.AesUtils;
-import com.ruoyi.tool.CryptoAlgorithm;
 import org.bson.BsonDocument;
 import org.bson.BsonReader;
 import org.bson.json.JsonMode;
@@ -14,7 +12,6 @@ import org.bson.json.JsonWriter;
 import org.bson.json.JsonWriterSettings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.mongo.MongoClientSettingsBuilderCustomizer;
 
 import java.io.StringWriter;

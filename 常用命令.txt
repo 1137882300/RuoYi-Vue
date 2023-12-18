@@ -1,0 +1,9 @@
+
+打成镜像文件
+docker build -t ruoyi-java ./
+
+改镜像名
+docker tag rouyi-java:latest ruoyi-java:latest
+
+启动镜像容器
+docker run -d --name ruoyi-java --network=ruoyi-network -p 8088:8080 ruoyi-java:latest

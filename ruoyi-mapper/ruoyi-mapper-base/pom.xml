@@ -9,7 +9,7 @@
 
     <artifactId>ruoyi-mapper-base</artifactId>
     <packaging>jar</packaging>
-    <version>${ruoyi.version}</version>
+<!--    <version>${ruoyi.version}</version>-->
     <name>ruoyi-mapper-base</name>
     <url>http://maven.apache.org</url>
 

@@ -9,7 +9,7 @@
 
     <artifactId>carb-tool</artifactId>
     <packaging>jar</packaging>
-    <version>${ruoyi.version}</version>
+<!--    <version>${ruoyi.version}</version>-->
     <name>carb-tool</name>
     <url>http://maven.apache.org</url>
 

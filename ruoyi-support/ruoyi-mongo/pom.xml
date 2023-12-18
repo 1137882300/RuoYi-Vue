@@ -9,7 +9,7 @@
 
     <artifactId>ruoyi-mongo</artifactId>
     <packaging>jar</packaging>
-    <version>${ruoyi.version}</version>
+<!--    <version>${ruoyi.version}</version>-->
     <name>ruoyi-mongo</name>
     <url>http://maven.apache.org</url>
 

@@ -28,10 +28,10 @@
             <artifactId>ruoyi-mongo</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>com.ruoyi</groupId>
-            <artifactId>ruoyi-mapper</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.ruoyi</groupId>-->
+<!--            <artifactId>ruoyi-mapper</artifactId>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>com.ruoyi</groupId>
             <artifactId>ruoyi-mapper-base</artifactId>

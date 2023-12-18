@@ -3,7 +3,6 @@ package com.ruoyi.mongo.config;
 import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
 import com.ruoyi.tool.CryptoAlgorithm;
-import com.sun.istack.internal.NotNull;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.config.AbstractMongoClientConfiguration;
