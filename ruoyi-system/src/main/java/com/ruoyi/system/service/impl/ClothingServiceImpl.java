@@ -2,6 +2,7 @@ package com.ruoyi.system.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.BeanCopier;
+import cn.hutool.core.bean.copier.CopyOptions;
 import com.ruoyi.common.core.domain.request.ClothingListRQ;
 import com.ruoyi.common.core.domain.request.ClothingUpsertRQ;
 import com.ruoyi.common.core.domain.response.ClothingListVO;
@@ -43,7 +44,7 @@ public class ClothingServiceImpl implements IClothingService {
         clothingRpService.saveOrUpdate(clothingPO);
 
         ClothingMongoModel clothingMongoModel = new ClothingMongoModel();
-        BeanUtil.copyProperties(clothingPO, clothingMongoModel);
+        BeanUtil.copyProperties(clothingPO, clothingMongoModel, CopyOptions.create().setIgnoreProperties("id"));
         clothingRepository.saveOrUpdate(clothingMongoModel);
     }
 }

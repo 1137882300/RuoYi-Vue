@@ -11,6 +11,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>ruoyi-mongo</module>
+        <module>carb-tool</module>
     </modules>
 
 

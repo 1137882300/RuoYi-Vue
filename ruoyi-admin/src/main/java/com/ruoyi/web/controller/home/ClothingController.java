@@ -28,6 +28,7 @@ public class ClothingController extends BaseController {
 
     private final IClothingService clothingService;
 
+
     @PostMapping("/list")
     @PreAuthorize("@ss.hasPermi('home:clothing:list')")
     public ApiResponse<List<ClothingListVO>> list(@RequestBody ClothingListRQ rq) {

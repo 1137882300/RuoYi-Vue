@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
  * @desc:
  */
 @Data
-@TableName("clothing")
+@TableName("home_clothing")
 public class ClothingPO {
 
     @TableId(type = IdType.AUTO)

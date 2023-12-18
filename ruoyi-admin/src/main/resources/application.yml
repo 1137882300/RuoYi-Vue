@@ -18,7 +18,7 @@ ruoyi:
 # 开发环境配置
 server:
   # 服务器的HTTP端口，默认为8080
-  port: 8080
+  port: 8088
   servlet:
     # 应用的访问路径
     context-path: /
@@ -90,9 +90,10 @@ spring:
         max-active: 8
         # #连接池最大阻塞等待时间（使用负值表示没有限制）
         max-wait: -1ms
-  data:
-    mongodb:
-      uri: mongodb+srv://923828430:ZIhan1123@mongo-cluster0.uhhdjbf.mongodb.net/crab?retryWrites=true&w=majority
+
+# mongoDB链接的URI（aes加密后的）
+mongodb:
+  uri: be8bb591160ede16446d706b47be12d065adac7928689f428e1b1aca9a233d6aae30182b5e3a2534ef4661d5c9339fd52d3cfed1292487beba0750e72980267e9226d11d4cc6c2d1b092ea4206df00170051ed679bfc51c48aaaa5a42b7d75718a0cfaf836240ea60275f9e2473b1889
 
 # token配置
 token:
