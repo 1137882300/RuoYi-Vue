@@ -19,3 +19,7 @@ docker ps -f name=mysql-v2
 
 查看网络
 docker network ls
+
+
+进入redis命令
+docker exec -it redis-v2 bash
