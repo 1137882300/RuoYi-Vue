@@ -7,3 +7,12 @@ docker tag rouyi-java:latest ruoyi-java:latest
 
 启动镜像容器
 docker run -d --name ruoyi-java --network=ruoyi-network -p 8088:8080 ruoyi-java:latest
+
+查看网络
+docker inspect ruoyi-java --format='{{.NetworkSettings.Networks}}'
+
+查看mysql在容器内的IP
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' mysql-v2
+
+查看容器的状态
+docker ps -f name=mysql-v2
