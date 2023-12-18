@@ -17,6 +17,9 @@ docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' mys
 查看容器的状态
 docker ps -f name=mysql-v2
 
+创建网络
+docker network create ruoyi_network
+
 查看网络
 docker network ls
 
