@@ -3,6 +3,7 @@ package com.ruoyi.system.service.impl;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.BeanCopier;
 import cn.hutool.core.bean.copier.CopyOptions;
+import com.alibaba.fastjson.JSON;
 import com.ruoyi.common.core.domain.request.ClothingListRQ;
 import com.ruoyi.common.core.domain.request.ClothingUpsertRQ;
 import com.ruoyi.common.core.domain.response.ClothingListVO;
@@ -12,6 +13,7 @@ import com.ruoyi.mongo.repository.ClothingRepository;
 import com.ruoyi.system.repository.IClothingRpService;
 import com.ruoyi.system.service.IClothingService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,6 +23,7 @@ import java.util.List;
  * @date: 2023/11/8
  * @desc:
  */
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class ClothingServiceImpl implements IClothingService {
@@ -31,20 +34,23 @@ public class ClothingServiceImpl implements IClothingService {
 
     @Override
     public List<ClothingListVO> list(ClothingListRQ rq) {
-        return null;
+        List<ClothingPO> list = clothingRpService.list();
+        return BeanUtil.copyToList(list, ClothingListVO.class, CopyOptions.create().ignoreError().ignoreNullValue());
     }
 
     @Override
     public void upsert(ClothingUpsertRQ rq) {
         ClothingPO clothingPO = new ClothingPO();
-        clothingPO.setId(rq.getId());
-        clothingPO.setSeason(1);
-        clothingPO.setRemark("test ...");
-        clothingPO.setTitle("title...");
+        BeanUtil.copyProperties(rq, clothingPO, CopyOptions.create().ignoreError().ignoreNullValue());
         clothingRpService.saveOrUpdate(clothingPO);
 
         ClothingMongoModel clothingMongoModel = new ClothingMongoModel();
-        BeanUtil.copyProperties(clothingPO, clothingMongoModel, CopyOptions.create().setIgnoreProperties("id"));
-        clothingRepository.saveOrUpdate(clothingMongoModel);
+        try {
+            BeanUtil.copyProperties(clothingPO, clothingMongoModel, CopyOptions.create().setIgnoreProperties("id").ignoreError().ignoreNullValue());
+            clothingRepository.saveOrUpdate(clothingMongoModel);
+        } catch (Exception e) {
+            log.error("error, clothingMongoModel:{}", JSON.toJSONString(clothingMongoModel));
+        }
+
     }
 }
