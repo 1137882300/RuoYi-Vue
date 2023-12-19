@@ -18,7 +18,7 @@ docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' mys
 docker ps -f name=mysql-v2
 
 创建网络
-docker network create ruoyi_network
+docker network create ruoyi-network
 
 查看网络
 docker network ls
@@ -26,3 +26,7 @@ docker network ls
 
 进入redis命令
 docker exec -it redis-v2 bash
+
+
+docker run -d --name redis-v2 --network ruoyi-network redis
+docker run -p 6379:6379 --name redis-v2 --network=ruoyi-network -v F:\docker-home\redis-v2\data:/data  -v F:\docker-home\redis-v2\conf\redis.conf:/etc/redis/redis.conf  -d redis redis-server /etc/redis/redis.conf -- appendonly yes
