@@ -1,7 +1,5 @@
 package com.ruoyi.sdk.gitee.config;
 
-import cn.hutool.crypto.symmetric.DES;
-import sun.security.provider.SHA;
 
 /**
  * @author: juzi
@@ -21,12 +19,5 @@ public class GiteeConfig {
     //大写表示要替换的值
     public static final String upload_url = "https://gitee.com/api/v5/repos/OWNER/REPO/contents/PATH";
     public static final String get_url = "https://gitee.com/api/v5/repos/coderzane/images/git/gitee/trees/SHA";
-
-
-    public static void main(String[] args) {
-//        9556d23c97824374fc83207e3557bf1a
-
-
-    }
 
 }
