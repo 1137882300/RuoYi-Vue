@@ -28,10 +28,6 @@
             <artifactId>ruoyi-mongo</artifactId>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>com.ruoyi</groupId>-->
-<!--            <artifactId>ruoyi-mapper</artifactId>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>com.ruoyi</groupId>
             <artifactId>ruoyi-mapper-base</artifactId>
@@ -40,6 +36,11 @@
         <dependency>
             <groupId>com.ruoyi</groupId>
             <artifactId>carb-tool</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ruoyi</groupId>
+            <artifactId>crab-sdk-gitee</artifactId>
         </dependency>
 
     </dependencies>

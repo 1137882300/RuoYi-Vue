@@ -13,7 +13,9 @@ import lombok.AllArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
@@ -38,9 +40,9 @@ public class ClothingController extends BaseController {
     @PostMapping("/upsert")
     @PreAuthorize("@ss.hasPermi('home:clothing:upsert')")
     @Log(title = "衣着管理", businessType = BusinessType.UPSERT)
-    public ApiResponse<Void> upsert(@RequestBody @Validated ClothingUpsertRQ rq) {
-        clothingService.upsert(rq);
+    public ApiResponse<Void> upsert(@RequestBody @Validated ClothingUpsertRQ rq,
+                                    @RequestParam("file") @NotNull(message = "文件不能为空") MultipartFile file) {
+        clothingService.upsert(rq, file);
         return ApiResponse.ok();
     }
-
 }
