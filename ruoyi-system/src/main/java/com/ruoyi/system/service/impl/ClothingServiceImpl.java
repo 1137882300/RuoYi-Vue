@@ -42,10 +42,10 @@ public class ClothingServiceImpl implements IClothingService {
     }
 
     @Override
-    public void upsert(ClothingUpsertRQ rq, MultipartFile file) {
+    public void upsert(ClothingUpsertRQ rq, MultipartFile file, String username) {
 
         //上传图片
-        String imgUrl = GiteeUtil.uploadImg(file, "上传图片");
+        String imgUrl = GiteeUtil.uploadImg(file, username + "上传图片");
         if (StringUtils.isBlank(imgUrl)) {
             ApiException.throwException("上传图片失败");
         }

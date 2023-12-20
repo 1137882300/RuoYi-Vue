@@ -165,6 +165,10 @@ public class BaseController {
         return getLoginUser().getUserId();
     }
 
+    public Long getUid() {
+        return getLoginUser().getUserId();
+    }
+
     /**
      * 获取登录部门id
      */

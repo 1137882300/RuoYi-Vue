@@ -17,5 +17,5 @@ public interface IClothingService {
 
     List<ClothingListVO> list(ClothingListRQ rq);
 
-    void upsert(ClothingUpsertRQ rq, MultipartFile file);
+    void upsert(ClothingUpsertRQ rq, MultipartFile file, String username);
 }

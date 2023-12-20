@@ -42,7 +42,7 @@ public class ClothingController extends BaseController {
     @Log(title = "衣着管理", businessType = BusinessType.UPSERT)
     public ApiResponse<Void> upsert(@RequestBody @Validated ClothingUpsertRQ rq,
                                     @RequestParam("file") @NotNull(message = "文件不能为空") MultipartFile file) {
-        clothingService.upsert(rq, file);
+        clothingService.upsert(rq, file, super.getUsername());
         return ApiResponse.ok();
     }
 }
