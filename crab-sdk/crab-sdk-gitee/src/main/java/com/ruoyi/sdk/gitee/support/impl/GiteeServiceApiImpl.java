@@ -78,7 +78,8 @@ public class GiteeServiceApiImpl implements GiteeServiceApi {
 
     @Override
     public List<String> getAllImg() {
-        String url = String.format("https://gitee.com/api/v5/repos/coderzane/images/git/gitee/trees/%s", GiteeConfig.BRANCH);
+
+        String url = GiteeConfig.get_url.replace("SHA", GiteeConfig.BRANCH);
         JSONArray tree = this.HttpRequest(url);
         Optional<String> first = tree.stream().filter(x -> {
             JSONObject js = (JSONObject) x;
@@ -92,7 +93,7 @@ public class GiteeServiceApiImpl implements GiteeServiceApi {
         if (!first.isPresent()) {
             return null;
         }
-        String url2 = String.format("https://gitee.com/api/v5/repos/coderzane/images/git/gitee/trees/%s", first.get());
+        String url2 = GiteeConfig.get_url.replace("SHA", first.get());
         JSONArray array = HttpRequest(url2);
         List<String> pathList = array.stream().map(x -> {
             JSONObject js = (JSONObject) x;
